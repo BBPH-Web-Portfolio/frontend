@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: DmSansMedium;
+}
+
+html {
+ scrollbar-width: none;
+}
+
+@font-face {
+  font-family: Mukta;
+  src: url(../../public/fonts/Mukta-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: DmSans;
+  src: url(../../public/fonts/DMSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: DmSansBold;
+  src: url(../../public/fonts/DMSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: DmSansMedium;
+  src: url(../../public/fonts/DMSans-Medium.ttf);
+}
