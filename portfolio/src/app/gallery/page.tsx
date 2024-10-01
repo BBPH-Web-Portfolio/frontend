@@ -1,7 +1,37 @@
+"use client";
 import Navbar from "@/components/Navbar";
+import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+import { fetchImagesUrl } from "./hooks/FetchImages";
+import { useImageStore } from "./store/UseImageGallery";
+import { DialogImageGallery } from "./components/DialogImageGallery";
+import { DialogAdd } from "./components/DialogAdd";
 
 const Gallery = () => {
+  const [token, setToken] = useState(false);
+  const { setImageData, getOrderedImages } = useImageStore();
+  const orderedImages = getOrderedImages();
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("token");
+    if (storedToken) setToken(true);
+  }, []);
+
+  useEffect(() => {
+    const loadImages = async () => {
+      const fetchedImages = await fetchImagesUrl();
+      if (fetchedImages) {
+        setImageData(fetchedImages);
+      }
+      setIsLoading(false);
+    };
+    loadImages();
+  }, [setImageData]);
+
+  if (isLoading) return <div></div>;
+
   return (
     <>
       <section className="w-[88%] mx-auto max-w-[90.75rem]">
@@ -23,36 +53,35 @@ const Gallery = () => {
           </div>
         </section>
 
-        <section className="w-full h-[170vh]">
-         
-            <div className="grid grid-cols-6 grid-rows-2 gap-4">
-              <div className="col-start-5 row-start-1 bg-green-400 h-[18rem]">
-                5
+        <section className="w-full h-auto mb-[5rem]">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {orderedImages.map((image) => (
+              <div
+                key={image.id}
+                className="overflow-hidden  relative"
+              >
+                <img
+                  src={image.url}
+                  alt={image.alt || `Image ${image.id}`}
+                  className="w-full h-auto transition-transform duration-300 transform hover:scale-105"
+                  width={image.width}
+                  height={image.height}
+                />
+                {token && (
+                  <DialogImageGallery
+                    id={image.id}
+                    width={image.width}
+                    height={image.height}
+                  />
+                )}
               </div>
-              <div className="col-span-2 row-span-2 col-start-3 row-start-1 bg-red-400">
-                6
+            ))}
+            {token && (
+              <div className=" flex justify-center items-center overflow-hidden rounded-lg relative bg-[#8b8b8b33] hover:scale-105 transition-transform duration-300">
+                <DialogAdd />
               </div>
-              <div className="col-start-5 row-start-2 bg-blue-400">7</div>
-              <div className="col-start-2 row-start-2 bg-pink-400">8</div>
-            </div>
-
-       
-            <div className="grid grid-cols-6 grid-rows-3 gap-4 mt-[1rem]">
-              <div className="bg-red-400 h-[18rem]">18</div>
-              <div className="bg-blue-400">19</div>
-              <div className="bg-green-400">20</div>
-              <div className="bg-yellow-400">21</div>
-              <div className="col-span-2 bg-pink-400">22</div>
-              <div className="col-start-3 row-start-2 bg-pink-400">23</div>
-              <div className="col-span-3 col-start-1 row-start-3 bg-orange-400 ">
-                24
-              </div>
-              <div className="col-span-2 row-span-2 col-start-4 row-start-2 bg-blue-400 ">
-                25
-              </div>
-              <div className="col-start-6 row-start-2 bg-green-400">26</div>
-            </div>
-        
+            )}
+          </div>
         </section>
       </section>
     </>

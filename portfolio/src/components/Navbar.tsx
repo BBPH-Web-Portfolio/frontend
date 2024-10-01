@@ -64,7 +64,7 @@ const Navbar = () => {
           <Link href="/" className="mr-[10vw] cursor-none">
             HOME
           </Link>
-          <Link href="#" className="">
+          <Link href="/about" className="cursor-none">
             ABOUT
           </Link>
         </div>
@@ -77,10 +77,10 @@ const Navbar = () => {
           />
         </div>
         <div className="hidden md:flex">
-          <Link href="/gallery" className="mr-[10vw]">
+          <Link href="/gallery" className="mr-[10vw] cursor-none">
             GALLERY
           </Link>
-          <Link href="#" className="" onClick={handleThemeChange}>
+          <Link href="#" className="cursor-none" onClick={handleThemeChange}>
             {isDarkMode ? "LIGHT" : "DARK"}
           </Link>
         </div>
