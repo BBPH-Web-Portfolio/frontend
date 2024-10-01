@@ -28,9 +28,7 @@ const LastUpdates = () => {
                 </div>
 
                 <div className="pt-5 flex">
-                  <div className="bg-white h-12 w-12 rounded-xl"></div>
-                  <div className="pl-4">
-                    <h3>Mauris sit</h3> <p>tempor lacus</p>
+                  <div className="border border-black dark:border-white w-full">
                   </div>
                 </div>
 
@@ -133,10 +131,7 @@ const LastUpdates = () => {
                 </div>
 
                 <div className="pt-5 flex">
-                  <div className="bg-white h-12 w-12 rounded-xl"></div>
-                  <div className="pl-4">
-                    <h3>Mauris sit</h3> <p>tempor lacus</p>
-                  </div>
+                  <div className="h-0 w-full border border-black dark:border-white"></div>
                 </div>
 
                 <div>

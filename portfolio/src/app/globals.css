@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 *,
 *::before,
 *::after {
@@ -16,7 +15,8 @@ body {
 }
 
 html {
- scrollbar-width: none;
+  scrollbar-width: none;
+  cursor: none;
 }
 
 @font-face {
