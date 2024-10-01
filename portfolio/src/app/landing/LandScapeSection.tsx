@@ -53,7 +53,7 @@ const LandScapeSection = () => {
 
   return (
     <section className="overflow-hidden mt-[10rem]" ref={triggerRef}>
-      <nav className="absolute flex justify-between w-screen h-[7rem] z-10 items-center p-16 font-[DmSansBold] text-lg ">
+      <nav className="absolute flex justify-between w-screen h-[110rem] z-10 items-center p-16 font-[DmSansBold] text-lg ">
         <div className="flex relative">
           <span className="mix-blend-difference">1</span>
           <div className="border border-black w-40 h-0 mt-[13px] mx-5" />
@@ -64,7 +64,7 @@ const LandScapeSection = () => {
 
       <div ref={sectionRef} className="flex w-[300vw] h-screen">
         <div className="w-screen h-full flex justify-center items-center relative">
-          <h2 className="text-white text-9xl absolute font-[Mukta] tracking-tight">
+          <h2 className="text-white text-9xl absolute font-[Mukta] tracking-tight mix-blend-difference">
             VISIONNAIRE
           </h2>
           <Image

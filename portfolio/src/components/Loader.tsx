@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
-const Loader = () => {
+export const Loader = () => {
   const loaderRef = useRef(null) ;
 
   useEffect(() => {
