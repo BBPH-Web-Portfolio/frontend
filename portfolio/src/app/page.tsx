@@ -1,12 +1,15 @@
+"use client"
 import Navbar from "../components/Navbar";
-import Footer from "./landing/Footer";
+import Footer from "./landing/footer/Footer";
 import HeroSection from "./landing/HeroSection";
 import LandScapeSection from "./landing/LandScapeSection";
 import LastUpdates from "./landing/LastUpdates";
-import PictureSection from "./landing/PictureSection";
+import PictureSection from "./landing/first_section/PictureSection";
 import ServiceSection from "./landing/ServiceSection";
 
 export default function Home() {
+
+
   return (
     <>
       <div className="w-[88%] mx-auto max-w-[90.75rem]">

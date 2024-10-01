@@ -58,10 +58,10 @@ const Navbar = () => {
   const image = isDarkMode ? Logo : Logo_black;
 
   return (
-    <nav className="text-black dark:text-white pt-10 ">  
+    <nav className="text-black dark:text-white pt-10">  
       <div className="flex justify-between">
         <div className="hidden md:flex">
-          <Link href="#" className="mr-[10vw]">
+          <Link href="/" className="mr-[10vw] cursor-none">
             HOME
           </Link>
           <Link href="#" className="">
@@ -77,7 +77,7 @@ const Navbar = () => {
           />
         </div>
         <div className="hidden md:flex">
-          <Link href="#" className="mr-[10vw]">
+          <Link href="/gallery" className="mr-[10vw]">
             GALLERY
           </Link>
           <Link href="#" className="" onClick={handleThemeChange}>
